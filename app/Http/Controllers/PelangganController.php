@@ -11,12 +11,12 @@ class PelangganController extends Controller
     public function index()
     {
         $pelanggan = Pelanggan::all();
-        return view('pelanggan.index', compact('pelanggan'));
+        return view('customers.index', compact('pelanggan'));
     }
 
     public function create()
     {
-        return view('pelanggan.create');
+        return view('customers.create');
     }
 
     public function store(Request $request)
@@ -30,11 +30,11 @@ class PelangganController extends Controller
         ]);
 
         Pelanggan::create($validated);
-        return redirect()->route('pelanggan.index');
+        return redirect()->route('customers.index');
     }
 
     public function edit(Pelanggan $pelanggan){
-        return view('pelanggan.edit', compact('pelanggan'));
+        return view('customers.edit', compact('pelanggan'));
     }
 
     public function update(Request $request, Pelanggan $pelanggan){
@@ -47,11 +47,11 @@ class PelangganController extends Controller
         ]);
 
         $pelanggan->update($validated);
-        return redirect()->route('pelanggan.index')->with('success', 'Pelanggan berhasil diperbarui');
+        return redirect()->route('customers.index')->with('success', 'Customer successfully updated');
     }
 
     public function destroy(Pelanggan $pelanggan){
         $pelanggan->delete();
-        return redirect()->route('pelanggan.index')->with('success', 'Pelanggan berhasil dihapus');
+        return redirect()->route('customers.index')->with('success', 'Customer successfully deleted');
     }
 }

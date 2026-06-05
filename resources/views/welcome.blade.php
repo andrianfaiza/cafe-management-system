@@ -12,14 +12,14 @@
     <div class="sidebar">
         <span>MyCafe</span> &nbsp;&nbsp;
         <a href="{{ route('menu.index')}}" class="btn-menu">Menu</a>
-        <a href="{{ route('meja.index')}}" class="btn-menu">Meja</a>
-        <a href="{{route('pelanggan.index')}}" class="btn-menu">Pelanggan</a>
-        <a href="{{ route('transaksi.index')}}" class="btn-menu">Transaksi</a>
+        <a href="{{ route('tables.index')}}" class="btn-menu">Tables</a>
+        <a href="{{route('customers.index')}}" class="btn-menu">Customers</a>
+        <a href="{{ route('transactions.index')}}" class="btn-menu">Transactions</a>
     </div>
 
     <div class="content">
-        <h1>Selamat Datang di Dashboard</h1>
-        <p>Pilih menu di sidebar untuk mengelola data Menu, Meja, Pelanggan, Transaksi.</p>
+        <h1>Welcome to the Dashboard</h1>
+        <p>Select a sidebar item to manage Menu, Tables, Customers, and Transactions.</p>
     </div>
 </div>
 </body>

@@ -10,10 +10,10 @@
 <body>
     <div class="form-container">
         <div class="form">
-            <h2>Tambah Pelanggan</h2>
-            <form action="{{route('pelanggan.store')}}" method="POST">
+            <h2>Add Customer</h2>
+            <form action="{{route('customers.store')}}" method="POST">
                 @csrf
-                @include('pelanggan._form')
+                @include('customers._form')
             </form>
             
         </div>

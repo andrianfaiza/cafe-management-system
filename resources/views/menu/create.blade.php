@@ -11,7 +11,7 @@
     <div class="form-container">
         <div class="form">
 
-            <h2>Tambah Data Menu</h2>
+            <h2>Add Menu Item</h2>
             <form action="{{ route('menu.store')}}" method="post">
                 @csrf
                 

@@ -13,9 +13,9 @@
             <h3>Cafe Management System</h3>
             <ul>
                 <li><a href="{{ route('menu.index')}}">Menu</a></li>
-                <li><a href="{{ route('meja.index')}}">Meja</a></li>
-                <li><a href="{{route('pelanggan.index')}}">Pelanggan</a></li>
-                <li><a href="{{ route('transaksi.index')}}">Transaksi</a></li>
+                <li><a href="{{ route('tables.index')}}">Tables</a></li>
+                <li><a href="{{route('customers.index')}}">Customers</a></li>
+                <li><a href="{{ route('transactions.index')}}">Transactions</a></li>
             </ul>
         </div>
         <div class="content">

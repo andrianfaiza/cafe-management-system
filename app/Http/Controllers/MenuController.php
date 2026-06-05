@@ -40,11 +40,11 @@ class MenuController extends Controller
         ]);
 
         $menu->update($validated);
-        return redirect()->route('menu.index')->with('success', 'Menu berhasil diperbarui');
+        return redirect()->route('menu.index')->with('success', 'Menu item successfully updated');
     }
 
     public function destroy(Menu $menu){
         $menu->delete();
-        return redirect()->route('menu.index')->with('success', 'Menu berhasil dihapus');
+        return redirect()->route('menu.index')->with('success', 'Menu item successfully deleted');
     }
 }

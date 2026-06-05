@@ -1,17 +1,17 @@
 @extends('layout.app')
-@section('title', 'Detail Pesanan')
+@section('title', 'Order Details')
 @section('content')
 <div class="content">
     <div class="header">
-        <h2>List Data Transaksi</h2>
+        <h2>Transaction Details</h2>
     </div>
     <div class="table">
         <table>
             <thead>
                 <tr>
                     <td>No</td>
-                    <td>Nama Menu</td>
-                    <td>Jumlah</td>
+                    <td>Menu Name</td>
+                    <td>Quantity</td>
                     <td>Subtotal</td>
                 </tr>
             </thead>
@@ -26,7 +26,7 @@
                 @endforeach
                 <tr>
                     <td>
-                        <a href="{{ route('transaksi.index')}}" class="btn-back">Kembali</a>
+                        <a href="{{ route('transactions.index')}}" class="btn-back">Back</a>
                     </td>
                 </tr>
                     </tbody>

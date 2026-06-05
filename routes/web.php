@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::resource('menu', MenuController::class);
-Route::resource('meja', MejaController::class);
-Route::resource('pelanggan', PelangganController::class);
-Route::resource('transaksi', TransaksiController::class);
-Route::post('/transaksi/{transaksi}/done', [TransaksiController::class, 'done'])->name('transaksi.done');
+Route::resource('tables', MejaController::class);
+Route::resource('customers', PelangganController::class);
+Route::resource('transactions', TransaksiController::class);
+Route::post('/transactions/{transaksi}/done', [TransaksiController::class, 'done'])->name('transactions.done');

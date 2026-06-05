@@ -10,7 +10,7 @@
 <body>
     <div class="form-container">
         <div class="form">
-            <h2>Edit Data Menu</h2>
+            <h2>Edit Menu Item</h2>
             <form action="{{route('menu.update', $menu->id)}}" method="post">
                 @csrf
                 @method('PUT')

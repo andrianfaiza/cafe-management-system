@@ -15,13 +15,13 @@ class TransaksiController extends Controller
     public function index()
     {
         $transaksi = Transaksi::with('pelanggan','meja','detail.menu')->get();
-        return view('transaksi.index', compact('transaksi'));
+        return view('transactions.index', compact('transaksi'));
     }
 
     public function show(Transaksi $transaksi)
     {
         $transaksi->load(['detail.menu','pelanggan','meja']);
-        return view('transaksi.show', compact('transaksi'));
+        return view('transactions.show', compact('transaksi'));
     }
 
     public function create()
@@ -29,7 +29,7 @@ class TransaksiController extends Controller
         $meja = Meja::all();
         $menu = Menu::all();
         $pelanggan = Pelanggan::all();
-        return view('transaksi.create', compact('menu','pelanggan','meja'));
+        return view('transactions.create', compact('menu','pelanggan','meja'));
     }
 
     public function store(Request $request)
@@ -72,7 +72,7 @@ class TransaksiController extends Controller
             Meja::where('id', $request->meja_id)->update(['status' => 'terisi']);
         });
 
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil ditambahkan');
+        return redirect()->route('transactions.index')->with('success', 'Transaction successfully added');
     }
 
 
@@ -81,6 +81,6 @@ class TransaksiController extends Controller
     {
         $transaksi->update(['status' => 'done']);
         Meja::where('id', $transaksi->meja_id)->update(['status' => 'tersedia']);
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi Selesai');
+        return redirect()->route('transactions.index')->with('success', 'Transaction completed');
     }
 }

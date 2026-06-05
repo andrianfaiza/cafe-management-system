@@ -10,11 +10,11 @@
 <body>
     <div class="form-container">
         <div class="form">
-            <h2>Edit Pelanggan</h2>
-            <form action="{{ route('pelanggan.update', $pelanggan->id)}}" method="POST">
+            <h2>Edit Customer</h2>
+            <form action="{{ route('customers.update', $pelanggan->id)}}" method="POST">
                 @csrf
                 @method('PUT')
-                @include('pelanggan._form')
+                @include('customers._form')
             </form>
         </div>
     </div>

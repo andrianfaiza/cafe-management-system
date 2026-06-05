@@ -10,43 +10,43 @@
 <body>
     <div class="form-container">
         <div class="form">
-            <form action="{{route('transaksi.store')}}" method="post">
+            <form action="{{route('transactions.store')}}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="tanggal">Tanggal</label>
+                    <label for="tanggal">Date</label>
                     <input type="date" name="tanggal" id="tanggal">
                 </div>
             <div class="form-group">
-                <label for="pelanggan_id">Nama Pelanggan</label>
+                <label for="pelanggan_id">Customer Name</label>
                 <select name="pelanggan_id" id="pelanggan_id">
-                    <option value="">Pilih Pelanggan</option>
+                    <option value="">Select Customer</option>
                     @foreach ($pelanggan as $p)
                         <option value="{{$p->id}}">{{$p->nama}}</option>
                         @endforeach
                     </select>
                 </div>
             <div class="form-group">
-                <label for="meja_id">Nomor Meja</label>
+                <label for="meja_id">Table Number</label>
                 <select name="meja_id" id="meja_id">
-                    <option value="">Pilih Nomor Meja</option>
+                    <option value="">Select Table Number</option>
                     @foreach ($meja as $meja)
                         <option value="{{$meja->id}}"
                             @if ($meja->status === 'terisi')
                                 disabled
                             @endif>
-                            {{$meja->no_meja}} --- {{$meja->status}}
+                            {{$meja->no_meja}} --- {{ $meja->status === 'terisi' ? 'Occupied' : 'Available' }}
                         </option>
                     @endforeach
                 </select>
             </div>
             
             <div class="form-group">
-                <label>List Menu</label>
+                <label>Menu List</label>
                 <table>
                     <thead>
                         <tr>
                             <td>Menu</td>
-                            <td>Jumlah</td>
+                            <td>Quantity</td>
                             <td></td>
                         </tr>
                     </thead>
@@ -54,14 +54,14 @@
                         <tr>
                             <td>
                                 <select name="detail[0][menu_id]" id="menu_id" class="menu_id" required>
-                                    <option value="">-- Pilih Menu --</option>
+                                    <option value="">-- Select Menu --</option>
                                     @foreach ($menu as $m)
                                         <option value="{{$m->id}}" data-harga="{{$m->harga}}">{{$m->nama_menu}} | Rp.{{$m->harga}}</option>
                                     @endforeach
                                 </select>
                             </td>
                             <td>
-                                <input type="number" name="detail[0][jumlah]" id="jumlah" placeholder="Masukan Jumlah Menu" min="1">
+                                <input type="number" name="detail[0][jumlah]" id="jumlah" placeholder="Enter Quantity" min="1">
                             </td>
                             <td>
                                 <button type="button" id="remove" class="remove">X</button>
@@ -76,8 +76,8 @@
                 <input type="number" name="total" id="total" value="0" disabled>
             </div>
             <div class="action">
-                <button type="submit" class="btn-submit">Simpan</button>
-                <a href="{{ route('transaksi.index') }}" class="btn-back">Kembali</a>
+                <button type="submit" class="btn-submit">Save</button>
+                <a href="{{ route('transactions.index') }}" class="btn-back">Back</a>
             </div>
         </div>
     </div>
@@ -119,12 +119,12 @@
             tr.innerHTML = `
                 <td>
                     <select name="detail[${row}][menu_id]" id="menu_id" class="menu_id" required>
-                        <option value="">-- Pilih Menu --</option>
+                        <option value="">-- Select Menu --</option>
                         ${options}
                     </select>
                 </td>
                 <td>
-                    <input type="number" name="detail[${row}][jumlah]" id="jumlah" placeholder="Masukan Jumlah Menu" min="1">
+                    <input type="number" name="detail[${row}][jumlah]" id="jumlah" placeholder="Enter Quantity" min="1">
                 </td>
                 <td>
                     <button type="button" class="remove">X</button>

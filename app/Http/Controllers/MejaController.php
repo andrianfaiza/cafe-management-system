@@ -14,7 +14,7 @@ class MejaController extends Controller
     public function index()
     {
         $meja = Meja::all();
-        return view('meja.index', compact('meja'));
+        return view('tables.index', compact('meja'));
     }
 
     /**
@@ -28,7 +28,7 @@ class MejaController extends Controller
         ]);
 
         Meja::create($validated);
-        return redirect()->route('meja.index');
+        return redirect()->route('tables.index');
     }
 
     /**
@@ -37,6 +37,6 @@ class MejaController extends Controller
     public function destroy(Meja $meja)
     {
         $meja->delete();
-        return redirect()->route('meja.index')->with('success', 'Meja berhasil dihapus');
+        return redirect()->route('tables.index')->with('success', 'Table successfully deleted');
     }
 }
